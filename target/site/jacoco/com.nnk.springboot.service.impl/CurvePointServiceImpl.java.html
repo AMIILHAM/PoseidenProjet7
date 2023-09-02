@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>CurvePointServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service.impl</a> &gt; <span class="el_source">CurvePointServiceImpl.java</span></div><h1>CurvePointServiceImpl.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service.impl;
+
+import com.nnk.springboot.domain.CurvePoint;
+import com.nnk.springboot.dto.CurvePointDto;
+import com.nnk.springboot.repositorie.CurvePointRepository;
+import com.nnk.springboot.service.CurvePointService;
+import com.nnk.springboot.utils.ErrorMessageConstants;
+import lombok.RequiredArgsConstructor;
+import org.hibernate.service.spi.ServiceException;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
+import java.util.Optional;
+
+@Service
+<span class="nc" id="L19">@RequiredArgsConstructor</span>
+public class CurvePointServiceImpl implements CurvePointService {
+
+    private final CurvePointRepository curvePointRepository;
+
+    @Override
+    public Optional&lt;CurvePoint&gt; findById(Integer id) {
+<span class="nc" id="L26">        return this.curvePointRepository.findById(id);</span>
+    }
+
+    @Override
+    public Page&lt;CurvePoint&gt; getPage(Pageable pageable) {
+<span class="nc" id="L31">        return this.curvePointRepository.findAll(pageable);</span>
+    }
+
+    @Override
+    public CurvePoint save(CurvePointDto curvePointDto) {
+
+<span class="nc" id="L37">        CurvePoint curvePoint = new CurvePoint();</span>
+<span class="nc" id="L38">        curvePoint.setTerm(curvePointDto.getTerm());</span>
+<span class="nc" id="L39">        curvePoint.setValue(curvePointDto.getValue());</span>
+<span class="nc" id="L40">        curvePoint.setCreationDate(Timestamp.valueOf(LocalDateTime.now()));</span>
+<span class="nc" id="L41">        curvePoint.setAsOfDate(Timestamp.valueOf(LocalDateTime.now()));</span>
+
+<span class="nc" id="L43">        return this.curvePointRepository.save(curvePoint);</span>
+    }
+
+    @Override
+    public CurvePoint update(CurvePointDto curvePointDto) {
+<span class="nc" id="L48">        CurvePoint curvePoint = this.findById(curvePointDto.getId()).orElseThrow(() -&gt; new ServiceException(ErrorMessageConstants.CURVE_POINT_IS_NOT_FOUND));</span>
+<span class="nc" id="L49">        curvePoint.setTerm(curvePointDto.getTerm());</span>
+<span class="nc" id="L50">        curvePoint.setValue(curvePointDto.getValue());</span>
+<span class="nc" id="L51">        return this.curvePointRepository.save(curvePoint);</span>
+    }
+
+    @Override
+    public void delete(Integer curvePointId) {
+<span class="nc" id="L56">        this.findById(curvePointId).ifPresent(curvePoint -&gt; this.curvePointRepository.deleteById(curvePoint.getId()));</span>
+<span class="nc" id="L57">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

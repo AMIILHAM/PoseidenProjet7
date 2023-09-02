@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppUser.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.domain</a> &gt; <span class="el_source">AppUser.java</span></div><h1>AppUser.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.domain;
+
+import com.nnk.springboot.utils.ErrorMessageConstants;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
+<span class="nc" id="L13">@AllArgsConstructor</span>
+<span class="nc" id="L14">@NoArgsConstructor</span>
+@Getter
+<span class="nc" id="L16">@Setter</span>
+@Entity
+@Table(name = &quot;users&quot;)
+public class AppUser {
+    @Id
+    @GeneratedValue(strategy= GenerationType.AUTO)
+<span class="nc" id="L22">    private Integer id;</span>
+
+    @NotBlank(message = ErrorMessageConstants.USER_NAME_IS_NULL_OR_BLANK)
+<span class="nc" id="L25">    private String username;</span>
+
+    @NotBlank(message = ErrorMessageConstants.PASSWORD_IS_NULL_OR_BLANK)
+    @Pattern(regexp = ErrorMessageConstants.PASSWORD_PATTERN, message = ErrorMessageConstants.PASSWORD_ERROR_MSG)
+<span class="nc" id="L29">    private String password;</span>
+
+    @NotBlank(message = ErrorMessageConstants.FULL_NAME_IS_NULL_OR_BLANK)
+<span class="nc" id="L32">    private String fullname;</span>
+
+    @NotBlank(message = ErrorMessageConstants.ROLE_NAME_IS_NULL_OR_BLANK)
+<span class="nc" id="L35">    private String role;</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

@@ -1,0 +1,27 @@
+
+U
+java:S18548":Remove this useless assignment to local variable "result".(È¾ˆ½øÿÿÿÿ
+F
+java:S14818"+Remove this unused "result" local variable.(È¾ˆ½øÿÿÿÿ
+h	java:S100>"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê¹³Çþÿÿÿÿ
+O
+java:S1854W":Remove this useless assignment to local variable "result".(­Â“R
+@
+java:S1481W"+Remove this unused "result" local variable.(­Â“R
+h	java:S100]"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü¥µúøÿÿÿÿ
+O
+java:S1854b":Remove this useless assignment to local variable "result".(­Â“R
+@
+java:S1481b"+Remove this unused "result" local variable.(­Â“R
+U
+java:S1854y":Remove this useless assignment to local variable "result".(“êÊ†ÿÿÿÿÿ
+F
+java:S1481y"+Remove this unused "result" local variable.(“êÊ†ÿÿÿÿÿ
+V
+java:S1854š":Remove this useless assignment to local variable "result".(­È¯éþÿÿÿÿ
+G
+java:S1481š"+Remove this unused "result" local variable.(­È¯éþÿÿÿÿ
+i	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÌáäÛúÿÿÿÿ
+i	java:S100Ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(•€–Ñûÿÿÿÿ
+F
+java:S5960F"+Remove this assertion from production code.(È®÷´ýÿÿÿÿ

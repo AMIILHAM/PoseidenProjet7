@@ -1,0 +1,32 @@
+
+g
+java:S1192)"LDefine a constant instead of duplicating this literal "fitchRating" 7 times.(ð¹’Éÿÿÿÿÿ
+g
+java:S1192)"LDefine a constant instead of duplicating this literal "sandpRating" 7 times.(ð¹’Éÿÿÿÿÿ
+h
+java:S1192)"MDefine a constant instead of duplicating this literal "moodysRating" 7 times.(ð¹’Éÿÿÿÿÿ
+P
+java:S1854-":Remove this useless assignment to local variable "result".(¶éº€
+A
+java:S1481-"+Remove this unused "result" local variable.(¶éº€
+h	java:S1003"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Û«Ùµüÿÿÿÿ
+U
+java:S1854G":Remove this useless assignment to local variable "result".(ººÓ“üÿÿÿÿ
+F
+java:S1481G"+Remove this unused "result" local variable.(ººÓ“üÿÿÿÿ
+c	java:S100M"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âûÐ±
+U
+java:S1854R":Remove this useless assignment to local variable "result".(ººÓ“üÿÿÿÿ
+F
+java:S1481R"+Remove this unused "result" local variable.(ººÓ“üÿÿÿÿ
+P
+java:S1854a":Remove this useless assignment to local variable "result".(†œÑÄ
+A
+java:S1481a"+Remove this unused "result" local variable.(†œÑÄ
+U
+java:S1854p":Remove this useless assignment to local variable "result".(ž½‰•þÿÿÿÿ
+F
+java:S1481p"+Remove this unused "result" local variable.(ž½‰•þÿÿÿÿ
+d	java:S100„"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ïµçç
+F
+java:S5960;"+Remove this assertion from production code.(È®÷´ýÿÿÿÿ

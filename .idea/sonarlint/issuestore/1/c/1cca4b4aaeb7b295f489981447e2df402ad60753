@@ -1,0 +1,24 @@
+
+^
+java:S1192+"HDefine a constant instead of duplicating this literal "account" 5 times.(ú¿’ğ
+U
+java:S18543":Remove this useless assignment to local variable "result".(ÖÚĞñûÿÿÿÿ
+F
+java:S14813"+Remove this unused "result" local variable.(ÖÚĞñûÿÿÿÿ
+c	java:S1009"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(®ÏÈë
+U
+java:S1854R":Remove this useless assignment to local variable "result".(—ÑÎåüÿÿÿÿ
+F
+java:S1481R"+Remove this unused "result" local variable.(—ÑÎåüÿÿÿÿ
+c	java:S100X"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…å”Ú
+U
+java:S1854]":Remove this useless assignment to local variable "result".(—ÑÎåüÿÿÿÿ
+F
+java:S1481]"+Remove this unused "result" local variable.(—ÑÎåüÿÿÿÿ
+P
+java:S1854v":Remove this useless assignment to local variable "result".(»Ü•…
+A
+java:S1481v"+Remove this unused "result" local variable.(»Ü•…
+i	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ã™ñáúÿÿÿÿ
+F
+java:S5960A"+Remove this assertion from production code.(È®÷´ıÿÿÿÿ

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>BidListServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service.impl</a> &gt; <span class="el_source">BidListServiceImpl.java</span></div><h1>BidListServiceImpl.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service.impl;
+
+import com.nnk.springboot.domain.BidList;
+import com.nnk.springboot.repositorie.BidListRepository;
+import com.nnk.springboot.service.BidListService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+<span class="nc" id="L14">@RequiredArgsConstructor</span>
+public class BidListServiceImpl implements BidListService {
+
+    private final BidListRepository bidListRepository;
+
+    @Override
+    public Optional&lt;BidList&gt; findById(Integer id) {
+<span class="nc" id="L21">        return this.bidListRepository.findById(id);</span>
+    }
+
+    @Override
+    public Page&lt;BidList&gt; getAllBidList(Pageable pageable) {
+<span class="nc" id="L26">        return bidListRepository.findAll(pageable);</span>
+    }
+
+    @Override
+    public BidList save(BidList bidList) {
+<span class="nc" id="L31">        return this.bidListRepository.save(bidList);</span>
+    }
+
+    @Override
+    public BidList update(BidList bidList) {
+<span class="nc" id="L36">        return this.save(bidList);</span>
+    }
+
+    @Override
+    public void delete(Integer bidListId) {
+<span class="nc" id="L41">        this.findById(bidListId).ifPresent(bidList -&gt; this.bidListRepository.deleteById(bidList.getBidListId()));</span>
+<span class="nc" id="L42">    }</span>
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

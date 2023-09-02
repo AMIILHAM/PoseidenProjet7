@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="fr"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>AppUserServiceImpl.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">spring-boot-skeleton</a> &gt; <a href="index.source.html" class="el_package">com.nnk.springboot.service.impl</a> &gt; <span class="el_source">AppUserServiceImpl.java</span></div><h1>AppUserServiceImpl.java</h1><pre class="source lang-java linenums">package com.nnk.springboot.service.impl;
+
+import com.nnk.springboot.domain.AppUser;
+import com.nnk.springboot.exception.ServiceException;
+import com.nnk.springboot.repositorie.UserRepository;
+import com.nnk.springboot.service.AppUserService;
+import com.nnk.springboot.utils.ErrorMessageConstants;
+import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Service;
+
+import java.util.Optional;
+
+@Service
+<span class="nc" id="L17">@RequiredArgsConstructor</span>
+public class AppUserServiceImpl implements AppUserService {
+
+    private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
+
+    @Override
+    public Page&lt;AppUser&gt; appUserPage(Pageable pageable) {
+<span class="nc" id="L25">        return this.userRepository.findAll(pageable);</span>
+    }
+
+    @Override
+    public AppUser save(AppUser user) throws ServiceException {
+<span class="nc bnc" id="L30" title="All 2 branches missed.">        if (this.userRepository.countByUsername(user.getUsername(),user.getId()) &gt; 0)</span>
+<span class="nc" id="L31">            throw new ServiceException(ErrorMessageConstants.USERNAME_ALREADY_EXIST);</span>
+
+<span class="nc" id="L33">        return this.userRepository.save(user);</span>
+    }
+
+    @Override
+    public AppUser update(AppUser user) throws ServiceException {
+
+<span class="nc" id="L39">        AppUser userToUpdate = this.userRepository.findById(user.getId()).orElseThrow(() -&gt; new ServiceException(ErrorMessageConstants.USER_NOT_FOUND_EXCEPTION_MESSAGE));</span>
+<span class="nc bnc" id="L40" title="All 2 branches missed.">        if (this.userRepository.countByUsername(user.getUsername(),user.getId()) &gt; 0)</span>
+<span class="nc" id="L41">            throw new ServiceException(ErrorMessageConstants.USERNAME_ALREADY_EXIST);</span>
+
+<span class="nc" id="L43">        userToUpdate.setFullname(user.getFullname());</span>
+<span class="nc" id="L44">        userToUpdate.setPassword(this.passwordEncoder.encode(user.getPassword()));</span>
+<span class="nc" id="L45">        userToUpdate.setRole(user.getRole());</span>
+<span class="nc" id="L46">        return this.userRepository.save(userToUpdate);</span>
+    }
+
+    @Override
+    public void deleteUser(Integer userId) {
+<span class="nc" id="L51">        this.findById(userId).ifPresent(appUser -&gt; this.userRepository.deleteById(appUser.getId()));</span>
+<span class="nc" id="L52">    }</span>
+
+    @Override
+    public Optional&lt;AppUser&gt; findById(Integer userId) {
+<span class="nc" id="L56">        return this.userRepository.findById(userId);</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.10.202304240956</span></div></body></html>

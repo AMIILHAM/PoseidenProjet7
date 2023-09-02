@@ -1,0 +1,10 @@
+com.nnk.springboot
+com.nnk.springboot.config
+com.nnk.springboot.controller
+com.nnk.springboot.domain
+com.nnk.springboot.dto
+com.nnk.springboot.exception
+com.nnk.springboot.repositorie
+com.nnk.springboot.service
+com.nnk.springboot.service.impl
+com.nnk.springboot.utils
