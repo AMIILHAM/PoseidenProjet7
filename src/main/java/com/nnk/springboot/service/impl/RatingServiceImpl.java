@@ -16,26 +16,46 @@ public class RatingServiceImpl implements RatingService {
 
     private final RatingRepository ratingRepository;
 
+    /**
+     * Get a rating  by ID
+     * @param id the rating ID
+     */
     @Override
     public Optional<Rating> findById(Integer id) {
         return this.ratingRepository.findById(id);
     }
-
+    /**
+     * Get a list of all ratings
+     *
+     * @return page of Rating containing all rating models
+     */
     @Override
     public Page<Rating> getPage(Pageable pageable) {
         return this.ratingRepository.findAll(pageable);
     }
 
+    /**
+     * Save a new rating in the DB
+     * @param rating the BidListModel to save
+     */
     @Override
     public Rating save(Rating rating) {
         return this.ratingRepository.save(rating);
     }
 
+    /**
+     * update an existent rating from the DB
+     * @param rating the rating ID
+     */
     @Override
     public Rating update(Rating rating) {
         return this.ratingRepository.save(rating);
     }
 
+    /**
+     * Delete an existent rating from the DB
+     * @param ratingId the rating ID
+     */
     @Override
     public void delete(Integer ratingId) {
         this.findById(ratingId).ifPresent(rating -> this.ratingRepository.deleteById(rating.getId()));

@@ -12,7 +12,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class LoginController {
 
 
-
+    /**
+     * Render the ModelAndView login
+     *
+     * @return a model and view "login"
+     */
     @GetMapping("login")
     public String login() {
         return "login";

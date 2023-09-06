@@ -21,16 +21,30 @@ public class CurvePointServiceImpl implements CurvePointService {
 
     private final CurvePointRepository curvePointRepository;
 
+    /**
+     * Get a Curve Point  by ID
+     * @param id the curve point ID
+     */
     @Override
     public Optional<CurvePoint> findById(Integer id) {
         return this.curvePointRepository.findById(id);
     }
 
+    /**
+     * Get a list of all curve points
+     *
+     * @return page of CurvePointModel containing all curve point models
+     */
     @Override
     public Page<CurvePoint> getPage(Pageable pageable) {
         return this.curvePointRepository.findAll(pageable);
     }
 
+    /**
+     * Save a new curve point in the DB
+     * @param curvePointDto the CurvePointDto
+     *                   to save
+     */
     @Override
     public CurvePoint save(CurvePointDto curvePointDto) {
 
@@ -43,6 +57,10 @@ public class CurvePointServiceImpl implements CurvePointService {
         return this.curvePointRepository.save(curvePoint);
     }
 
+    /**
+     * update an existent Curve Point from the DB
+     * @param curvePointDto the curve point ID
+     */
     @Override
     public CurvePoint update(CurvePointDto curvePointDto) {
         CurvePoint curvePoint = this.findById(curvePointDto.getId()).orElseThrow(() -> new ServiceException(ErrorMessageConstants.CURVE_POINT_IS_NOT_FOUND));
@@ -51,6 +69,11 @@ public class CurvePointServiceImpl implements CurvePointService {
         return this.curvePointRepository.save(curvePoint);
     }
 
+
+    /**
+     * Delete an existent Curve Point from the DB
+     * @param curvePointId the curve point ID
+     */
     @Override
     public void delete(Integer curvePointId) {
         this.findById(curvePointId).ifPresent(curvePoint -> this.curvePointRepository.deleteById(curvePoint.getId()));

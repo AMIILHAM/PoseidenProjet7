@@ -25,19 +25,19 @@ public class SecurityConfiguration {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-        // configurela manière dont les requêtes HTTP doivent être autorisées dans votre application.
-                // autorise l'accés à la pages de connexion (avec URL "/login") où les utilisateurs doivent saisir leurs informations d'identification.
                 .authorizeHttpRequests(requests -> requests
+                        //Permit access to all for the login and main home page
                         .requestMatchers("/login").permitAll()
+                        //Authentication request parameters
                         .anyRequest().authenticated()
                 )
                 .formLogin(form -> form
                         .loginPage("/login")
                         .permitAll()
                 )
-                //Cette partie configure la façon dont le processus de déconnexion doit être géré.
+                //Configuration of the logout
                 .logout(LogoutConfigurer::permitAll)
-                //démarre la configuration pour la gestion des exceptions.
+                //Definition of the default URL in case of exception of an access denied
                 .exceptionHandling(exceptionHandling ->
                         exceptionHandling
                                 .accessDeniedHandler(accessDeniedHandler())

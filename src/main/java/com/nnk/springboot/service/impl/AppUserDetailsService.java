@@ -18,6 +18,14 @@ import java.util.Collections;
 public class AppUserDetailsService implements UserDetailsService {
 
     private final UserRepository userRepository;
+
+    /**
+     * Load a user by username with specific authorities depending on its role
+     * @Override of method loadUserByUserName from UserDetailsService
+     * @param username the username equals the user email address
+     * @return UserDetails model including username, password and authority)
+     * @throws UsernameNotFoundException
+     */
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
